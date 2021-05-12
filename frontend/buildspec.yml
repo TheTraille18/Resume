@@ -9,10 +9,14 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
+      - cd frontend/
+      - pwd
       - npm install
   build:
     commands:
       - echo Build started on `date`
+      - cd frontend/
+      - pwd
       - npm run build
   post_build:
     commands:
