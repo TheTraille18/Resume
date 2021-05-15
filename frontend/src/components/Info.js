@@ -1,16 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-  bold: {
-    fontWeight: 600
-  }
-})
-
 
 export default function Info() {
-  const classes = useStyles();
   return (
     <div>
       <p align="left">
@@ -95,22 +86,27 @@ export default function Info() {
         </Grid>
         <Grid item>
           <Grid container direction="row" >
-            <Grid item sm={2}>
-            </Grid>
-            <Grid item sm={10} align="left">
+            <Grid item sm={6} align="left">
               <div>
                 <b>Website</b><br />
-                    https://ablackcloudapp.com/.<br />
-                    Website created using React hosted on AWS S3<br />
+                <a href="https://ablackcloudapp.com/">https://ablackcloudapp.com/</a><br />
+                    Website created using React hosted<br />
+                    on AWS S3<br />
                     Authentication using AWS Cognito<br />
+              </div>
+            </Grid>
+            <Grid item sm={6} align="left">
+              <div>
+                <b>Resume Website</b><br />
+                <a href="https://resume.ablackcloudapp.com/">https://resume.ablackcloudapp.com</a><br />
+                Created using React hosted on AWS S3<br />
+                CICD using Jenkins and AWS CloudBuild
               </div>
             </Grid>
           </Grid>
         </Grid>
         <Grid item>
           <Grid container direction="row">
-            <Grid item sm={2}>
-            </Grid>
             <Grid item sm={10} align="left">
               <b>Task Manager App</b><br />
                     https://ablackcloudapp.com/taskmanagerapp<br />

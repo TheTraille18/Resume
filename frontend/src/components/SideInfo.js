@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Grid from '@material-ui/core/Grid';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Skill from './Skill'
 

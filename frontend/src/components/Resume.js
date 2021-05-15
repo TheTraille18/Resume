@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import SideInfo from './SideInfo'
@@ -19,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function () {
+export default function Resume() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
