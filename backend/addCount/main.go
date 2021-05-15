@@ -64,7 +64,7 @@ func createVistor() error {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println("Writing Item to Table")
+	fmt.Println("Creating Vistor Item")
 	input := &dynamodb.PutItemInput{
 		Item:      av,
 		TableName: aws.String(tableName),
