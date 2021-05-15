@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  variables:
+    DeployBucket: "resume.ablackcloudapp.com"
+    Distribution: "E2Y30RJOE2VRP4"
+
+phases:
+  pre_build:
+    commands:
+      - echo Backend
+  build:
+    commands:
+      - echo Build started on `date`
+      - sam build
+  post_build:
+    commands:
+      # copy the contents of /build to S3
+      - sam deploy --stack-name ResumeSAM
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build

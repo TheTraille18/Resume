@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  backend
+  
+  Sample SAM Template for backend
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  AddCountFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: addCount/
+      Handler: addCount
+      Runtime: go1.x
+      Tracing: Active # https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+            - dynamodb:PutItem
+          Resource: "*"
+      - Statement:
+        - Effect: Allow
+          Action:
+            - dynamodb:GetItem
+          Resource: "*"
+      - Statement:
+        - Effect: Allow
+          Action:
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+          Resource: "*"
+      Events:
+        CatchAll2:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /addcount
+            Method: post
+      Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+        Variables:
+          PARAM1: VALUE
+  CurrentVistorsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: viewCount/
+      Handler: viewCount
+      Runtime: go1.x
+      Tracing: Active # https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+            - dynamodb:GetItem
+          Resource: "*"
+      - Statement:
+        - Effect: Allow
+          Action:
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+          Resource: "*"
+      Events:
+        CatchAll2:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /vistors
+            Method: get
+  Vistors:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: Name
+        Type: String
+      TableName: Vistors

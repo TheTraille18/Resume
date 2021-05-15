@@ -1,0 +1,78 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'backend
+
+  Sample SAM Template for backend
+
+  '
+Globals:
+  Function:
+    Timeout: 10
+Resources:
+  AddCountFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: AddCountFunction
+      Handler: addCount
+      Runtime: go1.x
+      Tracing: Active
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+          - dynamodb:PutItem
+          Resource: '*'
+      - Statement:
+        - Effect: Allow
+          Action:
+          - dynamodb:GetItem
+          Resource: '*'
+      - Statement:
+        - Effect: Allow
+          Action:
+          - logs:CreateLogGroup
+          - logs:CreateLogStream
+          - logs:PutLogEvents
+          Resource: '*'
+      Events:
+        CatchAll2:
+          Type: Api
+          Properties:
+            Path: /addcount
+            Method: post
+      Environment:
+        Variables:
+          PARAM1: VALUE
+  CurrentVistorsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: CurrentVistorsFunction
+      Handler: viewCount
+      Runtime: go1.x
+      Tracing: Active
+      Policies:
+      - Statement:
+        - Effect: Allow
+          Action:
+          - dynamodb:GetItem
+          Resource: '*'
+      - Statement:
+        - Effect: Allow
+          Action:
+          - logs:CreateLogGroup
+          - logs:CreateLogStream
+          - logs:PutLogEvents
+          Resource: '*'
+      Events:
+        CatchAll2:
+          Type: Api
+          Properties:
+            Path: /vistors
+            Method: get
+  Vistors:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: Name
+        Type: String
+      TableName: Vistors
