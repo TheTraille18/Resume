@@ -75,7 +75,7 @@ export default function Info() {
         <Grid item>
           <Grid container direction="row">
             <Grid item>
-              <h3>Accomplishments</h3>
+              <h3>Projects</h3>
             </Grid>
           </Grid>
         </Grid>
@@ -88,6 +88,7 @@ export default function Info() {
                     Website created using React hosted<br />
                     on AWS S3<br />
                     Authentication using AWS Cognito<br />
+                    AWS Cloudfront for CDN
               </div>
             </Grid>
             <Grid item sm={6} align="left">
