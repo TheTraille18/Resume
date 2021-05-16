@@ -9,7 +9,6 @@ export default function Info() {
         multiple programing languages and AWS certified seeking a <br />
         position in either Frontend, Backend development or AWS Cloud engineer.
       </p>
-
       <Grid container direction="column" spacing={1}>
         <Grid item>
           <Grid container direction="row">
@@ -17,7 +16,6 @@ export default function Info() {
               <h3>Work History</h3>
             </Grid>
           </Grid>
-
         </Grid>
         <Grid item>
           <Grid container direction="row">
@@ -47,12 +45,10 @@ export default function Info() {
               Logical System Inc, LSI<br />
               Siemens Programmable Logic Controller (PLC)<br />
               Handling machinery upgrades onsite<br />
-
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-
       <Grid container direction="column">
         <Grid item>
           <Grid container direction="row">
@@ -60,7 +56,6 @@ export default function Info() {
               <h3>Education</h3>
             </Grid>
           </Grid>
-
         </Grid>
         <Grid item>
           <Grid container direction="row">
@@ -129,7 +124,6 @@ export default function Info() {
         <Grid item>
           <Grid container direction="row" >
             <Grid item xs={2}>
-
             </Grid>
             <Grid item>
               <Grid container direction="column" spacing={1} >
@@ -141,12 +135,9 @@ export default function Info() {
                 </Grid>
               </Grid>
             </Grid>
-
           </Grid>
-
         </Grid>
       </Grid>
-
     </div>
   )
 }
