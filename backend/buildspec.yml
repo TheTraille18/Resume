@@ -18,7 +18,7 @@ phases:
   post_build:
     commands:
       # copy the contents of /build to S3
-      - sam deploy --stack-name ResumeSAM
+      - yes | sam deploy --stack-name ResumeSAM
 artifacts:
   files:
     - '**/*'
